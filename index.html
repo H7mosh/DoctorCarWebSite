@@ -20,6 +20,13 @@
       border-radius: 5px;
     }
 
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
     .title {
       font-size: 24px;
       margin-bottom: 10px;
@@ -81,13 +88,37 @@
       font-size: 16px;
       margin-bottom: 10px;
     }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <h1 id="carName" class="title"></h1>
-    <p id="carModel" class="model"></p>
+    <div class="row">
+      <div>
+        <h1 id="carName" class="title"></h1>
+        <p id="carModel" class="model"></p>
+      </div>
+      <div>
+        <p id="createdDate">Created Date: April 30, 2024</p>
+        <p id="carState">Car State: Mosul</p>
+      </div>
+    </div>
 
     <div class="carousel" id="carousel">
       <img class="carousel-img active" src="car1.jpg" alt="Car Image">
@@ -98,10 +129,27 @@
     </div>
 
     <div class="car-details">
-      <p id="motorCar"></p>
-      <p id="carType"></p>
       <!-- Add more details as needed -->
     </div>
+
+    <div class="car-parts">
+      <h2>Car Parts</h2>
+      <table id="partsTable">
+        <thead>
+          <tr>
+            <th>Part</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="partsTableBody">
+          <!-- Table rows will be dynamically added here -->
+        </tbody>
+      </table>
+
+    </div>
+
+    <button onclick="navigateToSecondScreen()">Go to Home Screen</button>
+
   </div>
 
   <script>
@@ -110,14 +158,27 @@
       name: "Tesla Model S",
       model: "2024",
       motorCar: "Electric",
-      carType: "Sedan"
+      carType: "Sedan",
+      parts: [
+        { name: "Engine", status: "Painted" },
+        { name: "Doors", status: "Not Painted" },
+        { name: "Wheels", status: "Painted" },
+        { name: "Bonnet", status: "Painted" },
+        { name: "Roof", status: "Not Painted" },
+        { name: "Trunk", status: "Painted" },
+        { name: "Left Door Front", status: "Painted" },
+        { name: "Left Door Rear", status: "Painted" },
+        { name: "Right Door Front", status: "Not Painted" },
+        { name: "Right Door Rear", status: "Painted" },
+        // Add more parts as needed
+      ]
     };
 
     // Update HTML content with car data
     document.getElementById("carName").innerText = carData.name;
     document.getElementById("carModel").innerText = "Model: " + carData.model;
-    document.getElementById("motorCar").innerText = "Motor: " + carData.motorCar;
-    document.getElementById("carType").innerText = "Type: " + carData.carType;
+    document.getElementById("createdDate").innerText = "Created Date: April 30, 2024";
+    document.getElementById("carState").innerText = "Car State: Mosul";
 
     // Carousel functionality
     const images = document.querySelectorAll(".carousel-img");
@@ -145,6 +206,26 @@
 
     // Uncomment the following lines to enable automatic image sliding
     // setInterval(nextImage, 3000);
+
+    // Populate car parts table
+    const partsTableBody = document.getElementById("partsTableBody");
+
+    carData.parts.forEach(part => {
+      const row = document.createElement("tr");
+      const nameCell = document.createElement("td");
+      const statusCell = document.createElement("td");
+
+      nameCell.textContent = part.name;
+      statusCell.textContent = part.status;
+
+      row.appendChild(nameCell);
+      row.appendChild(statusCell);
+      partsTableBody.appendChild(row);
+    });
+
+    function navigateToSecondScreen() {
+      window.location.href = "home.html";
+    }
   </script>
 </body>
 </html>
