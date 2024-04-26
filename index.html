@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Details</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .title {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .model {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .carousel {
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel-img {
+      width: 100%;
+      height: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .carousel-img.active {
+      opacity: 1;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    .car-details {
+      margin-top: 20px;
+    }
+
+    .car-details p {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 id="carName" class="title"></h1>
+    <p id="carModel" class="model"></p>
+
+    <div class="carousel" id="carousel">
+      <img class="carousel-img active" src="car1.jpg" alt="Car Image">
+      <img class="carousel-img" src="car2.jpg" alt="Car Image">
+      <img class="carousel-img" src="car3.jpg" alt="Car Image">
+      <div class="prev" onclick="prevImage()">&#10094;</div>
+      <div class="next" onclick="nextImage()">&#10095;</div>
+    </div>
+
+    <div class="car-details">
+      <p id="motorCar"></p>
+      <p id="carType"></p>
+      <!-- Add more details as needed -->
+    </div>
+  </div>
+
+  <script>
+    // Sample car data
+    const carData = {
+      name: "Tesla Model S",
+      model: "2024",
+      motorCar: "Electric",
+      carType: "Sedan"
+    };
+
+    // Update HTML content with car data
+    document.getElementById("carName").innerText = carData.name;
+    document.getElementById("carModel").innerText = "Model: " + carData.model;
+    document.getElementById("motorCar").innerText = "Motor: " + carData.motorCar;
+    document.getElementById("carType").innerText = "Type: " + carData.carType;
+
+    // Carousel functionality
+    const images = document.querySelectorAll(".carousel-img");
+    let currentIndex = 0;
+
+    function showImage(index) {
+      images.forEach(img => {
+        img.classList.remove('active');
+      });
+      images[index].classList.add('active');
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    }
+
+    // Show the first image initially
+    showImage(0);
+
+    // Uncomment the following lines to enable automatic image sliding
+    // setInterval(nextImage, 3000);
+  </script>
+</body>
+</html>
