@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Screen</title>
+  <style>
+    /* CSS Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .header input[type="text"] {
+      padding: 10px;
+      width: 70%;
+    }
+
+    .header button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 20px;
+    }
+
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px 5px 0 0;
+    }
+
+    .card h3 {
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+
+    .card p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header with text box and search button -->
+    <div class="header">
+      <input type="text" placeholder="Search...">
+      <button>Search</button>
+    </div>
+
+    <!-- Grid of cards -->
+    <div class="card-grid">
+      <div class="card">
+        <img src="car1.jpg" alt="Car Image">
+        <h3>Elentra 94</h3>
+        <p>M-19145</p>
+        <p>Mosul</p>
+      </div>
+
+      <div class="card">
+        <img src="car3.jpg" alt="Car Image">
+        <h3>Hyundi 2002</h3>
+        <p>DHK-99086</p>
+        <p>Erbil</p>
+      </div>
+
+      <div class="card">
+        <img src="car2.jpg" alt="Car Image">
+        <h3>Toyota</h3>
+        <p>SUL-009761</p>
+        <p>Baghdad</p>
+      </div>
+
+      <div class="card">
+        <img src="car1.jpg" alt="Car Image">
+        <h3>Elentra 94</h3>
+        <p>M-19145</p>
+        <p>Mosul</p>
+      </div>
+
+      <div class="card">
+        <img src="car3.jpg" alt="Car Image">
+        <h3>Hyundi 2002</h3>
+        <p>DHK-99086</p>
+        <p>Erbil</p>
+      </div>
+
+      <div class="card">
+        <img src="car2.jpg" alt="Car Image">
+        <h3>Toyota</h3>
+        <p>SUL-009761</p>
+        <p>Baghdad</p>
+      </div>
+      
+      <div class="card">
+        <img src="car3.jpg" alt="Car Image">
+        <h3>Hyundi 2002</h3>
+        <p>DHK-99086</p>
+        <p>Erbil</p>
+      </div>
+
+      <div class="card">
+        <img src="car2.jpg" alt="Car Image">
+        <h3>Toyota</h3>
+        <p>SUL-009761</p>
+        <p>Baghdad</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
